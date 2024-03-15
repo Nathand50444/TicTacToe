@@ -64,7 +64,7 @@ class TicTacToe
     end
 
     def game_over?
-        WINNING_COMBINATIONS.each do |combo|
+        WIN_COMBINATIONS.each do |combo|
           if combo.all? { |index| @board[index] == 'X' }
             puts "Player X wins!"
             return true
