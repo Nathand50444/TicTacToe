@@ -1,7 +1,10 @@
+require "pry"
+
 class TicTacToe
 
     def initialize
-        @board = [" ", " ", " ", " ", " ", " ", " ", " "] # Initialize sets the @board variable to a new, empty array that represents the game board.
+        @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]   # Initialize sets the @board variable to a new, empty array that represents the game board.
+        turn
     end
 
     WIN_COMBINATIONS = [
@@ -27,16 +30,12 @@ class TicTacToe
     end
         
     def position_taken?(index)
-        if @board[index] == " "
-            return false
-        else 
-            return true
-        end
+        @board[index] != " "
     end
 
     def valid_move?(index)
-        !position_taken?(index) && index.between?(0, 8)
-    end 
+        index.between?(0, 8) && !position_taken?(index)
+    end
 
     def turn_count
         @board.count{|square| square != " "}
@@ -48,7 +47,7 @@ class TicTacToe
 
     def turn
         puts "Choose a position (1-9): "
-        position = gets.chomp
+        position = gets.strip
         index = input_to_index(position)
         if valid_move?(index)
             move(index, current_player)
@@ -56,10 +55,10 @@ class TicTacToe
             if game_over?
               puts "Game Over!"
             else
-              turn # Call the turn method recursively for the next turn
+              turn
             end
         else
-            turn # If the move is invalid, call the turn method recursively to allow the player to try again
+            turn
         end
     end
 
