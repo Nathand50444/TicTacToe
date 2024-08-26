@@ -1,0 +1,38 @@
+# Tic Tac Toe Game
+
+## Overview
+
+This Tic Tac Toe game is built using Ruby and features a simple command-line interface.
+
+## Strengths and Skills
+
+### Programming Languages
+
+* Ruby: Demonstrated proficiency in Ruby programming language, including syntax, data structures, and object-oriented programming concepts.
+
+### Game Development
+
+* Game Logic: Implemented game logic for Tic Tac Toe, including player turns, move validation, and game over conditions.
+* User Interface: Created a simple command-line interface for user input and game output.
+
+### Problem-Solving
+
+* Algorithmic Thinking: Developed algorithms for game logic, including move validation and game over conditions.
+* Debugging: Debugged code to ensure correct functionality and error handling.
+
+### Code Organization and Structure
+
+* Modular Code: Organized code into modular functions and classes for easy maintenance and readability.
+* Comments and Documentation: Included comments and documentation to explain code functionality and purpose.
+
+## Code Highlights
+
+* [TicTacToe] class: Defines the game logic and user interface for the Tic Tac Toe game.
+* [turn] method: Manages player turns, including user input, move validation, and game output.
+* [valid_move?] method: Validates player moves to ensure correct game logic.
+
+## Example Use Cases
+
+* Run the game by executing the `tictactoe.rb` file in the terminal.
+* Play the game by entering numbers 1-9 to make moves.
+* Observe game output and logic in action.
