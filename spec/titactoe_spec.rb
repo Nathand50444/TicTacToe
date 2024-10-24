@@ -12,22 +12,17 @@ require '../lib/tictactoe'
 
 describe TicTacToe do
 
-  let(:game) { described_class.new }
-
-  context 'when the board shows the "X" "X" "X" sequence' do
-    let(:board) { ["X", "X", "X", "O", "O", " ", " ", " ", " "] }
-    it 'game_over returns true' do
-      expect(:board.game_over?).to eq true
-    end
-  end
+  let(:game) { TicTacToe.new }
 
   describe '#game_over' do
-    context 'when the board shows the "X" "X" "X" sequence' do
-      it 'returns "Player X wins!"' do
-        @board = ["X", "X", "X", "O", "O", " ", " ", " ", " "] # Arrange
-        game_over
-        expect(game_over).to eq true # Assert
-      end
+    it 'triggers the game_over sequence' do
+      game.instance_variable_set(:@board, [" ", " ", " ", " ", " ", " ", " ", " ", " "])
+      allow(game).to receive(:gets).and_return("0")
+      allow(game).to receive(:gets).and_return("4")
+      allow(game).to receive(:gets).and_return("1")
+      allow(game).to receive(:gets).and_return("5")
+      allow(game).to receive(:gets).and_return("2")
+      expect { game.game_over? }.to output("Player X wins!").to_stdout
     end
   end
 end
