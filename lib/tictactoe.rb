@@ -2,7 +2,6 @@ class TicTacToe
 
     def initialize
         @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]   # Initialize sets the @board variable to a new, empty array that represents the game board.
-        turn
     end
 
     WIN_COMBINATIONS = [
@@ -45,7 +44,8 @@ class TicTacToe
 
     def turn
         puts "Choose a position (1-9): "          # The 'turn' method manages each player's turn in the game.
-        position = gets.strip                     
+        position = gets.strip
+        puts position
         index = input_to_index(position)          # The player inputs their chosen position which is converted to an index of @board using 'input_to_index'.
         if valid_move?(index)                     # The index is checked using 'valid_move', if satisfied the move takes place.
             move(index, current_player)           # If 'valid_move' is not satisfied, 'turn' is called again.
