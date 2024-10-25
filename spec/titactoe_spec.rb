@@ -23,4 +23,19 @@ describe TicTacToe do
       expect(game.valid_move?(0)).to eq(false)
     end
   end
+
+  describe '#game_over?' do
+    context 'when three X values are in a row' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["X", "X", "X", "O", "O", " ", " ", " ", " "])
+      end
+
+      it 'returns true and outputs "Player X wins!"' do
+        expect { game.game_over? }.to output("Player X wins!\n").to_stdout
+        expect(game.game_over?).to eq(true)
+      end
+    end
+  end
 end
