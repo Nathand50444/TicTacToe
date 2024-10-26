@@ -38,4 +38,60 @@ describe TicTacToe do
       end
     end
   end
+
+  describe '#game_over?' do
+    context 'when three O values are in a row' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["X", "X", "O", " ", "O", "X", "O", " ", " "])
+      end
+
+      it 'returns true and outputs "Player O wins!"' do
+        expect { game.game_over? }.to output("Player O wins!\n").to_stdout
+        expect(game.game_over?).to eq(true)
+      end
+    end
+  end
+
+  describe '#display_board' do
+    let(:game) { TicTacToe.new }
+
+    before do
+      game.instance_variable_set(:@board, ["X", "X", "O", " ", "O", "X", "O", " ", " "])
+    end
+
+    it 'outputs the game_board' do
+      expected_output = <<~BOARD
+       X | X | O
+      -----------
+         | O | X
+      -----------
+       O |   |  
+    BOARD
+      expect{ game.display_board }.to output(expected_output).to_stdout
+    end
+  end
+
+  describe '#input_to_index' do
+    it 'returns the input - 1' do
+      game = TicTacToe.new
+      expect(game.input_to_index(3)).to eq(2)
+    end
+  end
+
+  describe '#move' do
+    context 'when player X chooses position 3' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, [" ", " ", " ", " ", " ", " ", " ", " ", " "])
+      end
+
+      it 'adds the X token to position 3' do
+        expect {  }.to output("Player O wins!\n").to_stdout
+        expect(game.game_over?).to eq(true)
+      end
+    end
+  end
 end

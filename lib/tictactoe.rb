@@ -10,7 +10,7 @@ class TicTacToe
         [0, 4, 8], [2, 4, 6]                    # Constant represents all winning combinations of the Tictactoe game.
     ]
 
-    def display_board
+    def display_board # (Test Complete)
         puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"  # display-board puts the game board and places each of the @board strings in place, where appropriate.
         puts "-----------"
         puts " #{@board[3]} | #{@board[4]} | #{@board[5]}"
@@ -18,7 +18,7 @@ class TicTacToe
         puts " #{@board[6]} | #{@board[7]} | #{@board[8]}"
     end
 
-    def input_to_index(input)     # As per the 'turn' method, the player will enter a number for what position they would like to take. 
+    def input_to_index(input)     # As per the 'turn' method, the player will enter a number for what position they would like to take. # (Test Complete)
         input.to_i - 1            # The player input is translated to the index position using 'input_to_index' bu using -1. (i.e. position 4 is @board[3])
     end
 
@@ -60,7 +60,7 @@ class TicTacToe
         end
     end
 
-    def game_over?                                                    # 'game-over?' checks whether the win, lose or draw conditions have been met for the game to end.
+    def game_over?  # (Test Complete)                                 # 'game-over?' checks whether the win, lose or draw conditions have been met for the game to end.
         WIN_COMBINATIONS.each do |combo|                              # Here we iterate through each winning combination as per the 'WON_COMBINATIONS' constant.
           if combo.all? { |index| @board[index] == 'X' }              # Within each iteration, we check if all elements of the current combination are the gievn token, here "X".
             puts "Player X wins!"
