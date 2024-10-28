@@ -86,11 +86,11 @@ describe TicTacToe do
 
       before do
         game.instance_variable_set(:@board, [" ", " ", " ", " ", " ", " ", " ", " ", " "])
+        game.move(2, "X")
       end
 
       it 'adds the X token to position 3' do
-        expect {  }.to output("Player O wins!\n").to_stdout
-        expect(game.game_over?).to eq(true)
+        expect(game.instance_variable_get(:@board)[2]).to eq("X")
       end
     end
   end
