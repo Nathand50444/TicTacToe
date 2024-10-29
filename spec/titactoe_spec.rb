@@ -94,4 +94,61 @@ describe TicTacToe do
       end
     end
   end
+
+  describe '#turn_count' do
+    context 'when the board has 4 positions occupied' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["O", "X", "O", "X", "X", "O", "X", "O", "X"])
+      end
+
+      it 'number of turns equals 9 and the game is a draw' do
+        expect(game.turn_count).to eq(9)
+        expect { game.game_over? }.to output("It's a draw!\n").to_stdout
+      end
+    end
+  end
+
+  describe '#turn_count' do
+    context 'when the board has 4 spaces occupied' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["X", "O", "O", " ", " ", "X", " ", " ", " "])
+      end
+
+      it 'number of turns equals 4' do
+        expect(game.turn_count).to eq(4)
+      end
+    end
+  end
+
+  describe '#current_player' do
+    context 'when the turn count is even' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["X", "O", "O", " ", " ", "X", " ", " ", " "])
+      end
+
+      it 'sets the current player as X' do
+        expect(game.current_player).to eq("X")
+      end
+    end
+  end
+
+  describe '#position_taken?' do
+    context 'when the position chosen is occupied' do
+      let(:game) { TicTacToe.new }
+
+      before do
+        game.instance_variable_set(:@board, ["X", "O", "O", " ", " ", "X", " ", " ", " "])
+      end
+
+      it 'returns true' do
+        expect(game.position_taken?(0)).to eq(true)
+      end
+    end
+  end
 end

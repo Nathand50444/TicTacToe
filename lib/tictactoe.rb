@@ -22,23 +22,23 @@ class TicTacToe
         input.to_i - 1            # The player input is translated to the index position using 'input_to_index' bu using -1. (i.e. position 4 is @board[3])
     end
 
-    def move(index, token)        # When 'move' is called, the position chosen is given the player's token (i.e. "X" or "O").
+    def move(index, token)        # When 'move' is called, the position chosen is given the player's token (i.e. "X" or "O"). # (Test Complete)
         @board[index] = token
     end
         
-    def position_taken?(index)    # 'position_taken' checks that if the index chosen does NOT contain an empty string " ".
+    def position_taken?(index)    # 'position_taken' checks that if the index chosen does NOT contain an empty string " ". # (Test Complete)
         @board[index] != " "      # i.e. if @board[1] == "X" then 'position_taken' == true.
     end
 
-    def valid_move?(index)
+    def valid_move?(index) # (Test Complete)
         index.between?(0, 8) && !position_taken?(index)     # 'valid_move' ensures that the chosen index is between 0-8 and that 'position_taken' not false.
     end
 
-    def turn_count
+    def turn_count # (Test Complete)
         @board.count{|square| square != " "} 
     end   
 
-    def current_player
+    def current_player # (Test Complete)
         turn_count.even? ? "X" : "O"    # Alongside 'turn_count', this keeps track of the player's turn and given token.
     end
 
